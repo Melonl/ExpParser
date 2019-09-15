@@ -9,6 +9,6 @@
 另，核心逻辑较为复杂，虽说我已经修了不少bug但肯定还会有计算逻辑上的bug存在。源码中动态数组类Array，和基于动态数组实现的
 ArrayStack都是我自己手写实现的，Array的实现较为简陋，还有一些不完善的地方，后面有修改我会更新。
   
-计算“(-2)*(1+3)”和“(2+3)^(1*2)”表达式演示：  
+演示：  
 
 ![Image](https://github.com/Melonl/ExpParser/raw/master/demo.png)
