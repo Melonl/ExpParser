@@ -5,6 +5,8 @@
 #include "ArrayStack.h"
 #include "ArrayStack.cpp"
 #include "ExpParser.h"
+#include "ExpParser.cpp"
+
 
 using namespace std;
 
