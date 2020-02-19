@@ -13,38 +13,20 @@ ExpParser::ExpParser() : op()
 
 bool ExpParser::isOp(string s)
 {
-    for (int i = 0; i < op.getSize(); i++)
-    {
-        if (op.contains(s[0]))
-        {
-            return true;
-        }
-    }
-    return false;
+    return op.contains(s[0]);
 }
 
 bool ExpParser::isOp(char s)
 {
-    //string str = to_string(s);
-    for (int i = 0; i < op.getSize(); i++)
-    {
-
-        if (op.contains(s))
-        {
-            return true;
-        }
-    }
-    return false;
+    return op.contains(s);
 }
 
 bool ExpParser::isNumStr(string s)
 {
-    for (int i = 0; i < s.size(); i++)
+    for (char &c : s)
     {
-        if (isdigit(s[i]))
-        {
+        if (isdigit(c))
             return true;
-        }
     }
     return false;
 }
@@ -321,6 +303,7 @@ string ExpParser::cal(string &num2, string &num1, const string &op)
 
 double ExpParser::calcSuffixExp(Array<string> suffixExp)
 {
+    //suffixExp.printAll();
     string n1, n2, op;
     int sz = suffixExp.getSize();
     ArrayStack<string> tmp;
