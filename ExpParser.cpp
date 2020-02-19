@@ -34,7 +34,8 @@ bool ExpParser::isNumStr(string s)
 bool ExpParser::checkInput(string &str)
 {
     ArrayStack<char> as;
-    for (int i = 0; i < str.size(); i++)
+    int sz = str.size();
+    for (int i = 0; i < sz; ++i)
     {
         if (str[i] == '(')
         {
@@ -71,25 +72,27 @@ double ExpParser::s2d(string s)
     double res = 0.0;
     int sign = 1;
     int index = 0;
+
     if (s[0] == '-')
     {
         s.erase(0, 1);
         sign = -1;
     }
-    if ((index = s.find('.')) == s.npos)
+    int sz = s.size();
+    if ((index = s.find('.')) == s.npos) //no decimal point
     {
-        for (int i = s.size() - 1; i >= 0; i--)
+        for (int i = sz - 1; i >= 0; i--)
         {
-            res += (double)(s[i] - '0') * pow(10, s.size() - i - 1);
+            res += (double)(s[i] - '0') * pow(10, sz - i - 1);
         }
     }
-    else
+    else // has decimal point
     {
         for (int i = index - 1; i >= 0; i--)
         {
             res += (double)(s[i] - '0') * pow(10, index - i - 1);
         }
-        for (int j = index + 1; j < s.size(); j++)
+        for (int j = index + 1; j < sz; j++)
         {
             res += (double)(s[j] - '0') * pow(0.1, j - index);
         }

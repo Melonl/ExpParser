@@ -7,8 +7,20 @@
 #include "ExpParser.h"
 #include "ExpParser.cpp"
 
-
 using namespace std;
+
+int maintest()
+{
+
+    string str = "-4*(-2)^2/2+0.5-0.25*0.5";
+    ExpParser ep;
+    double st = clock();
+    for (int i = 0; i < 1e5; ++i)
+        ep.parse(str);
+    cout << ((double(clock()) - st) / CLOCKS_PER_SEC) << endl;
+
+    return 0;
+}
 
 int main()
 {

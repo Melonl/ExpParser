@@ -8,7 +8,6 @@
 
 class ExpParser
 {
-
     Array<char> op;
 
     double s2d(string s); //string to double
@@ -20,7 +19,6 @@ class ExpParser
     bool isOp(string s);     //check up the string if it is an op
     bool isOp(char s);       //ditto,check up the char
     bool isNumStr(string s); //check if it is a number string for negative numbers
-
 public:
     ExpParser();
     bool checkInput(string &str); //check if it is a illeage exp,included parenthesis matching
