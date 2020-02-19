@@ -1,6 +1,6 @@
 #ifndef ARRAY_H
 #define ARRAY_H
-template <class E>
+template <typename E>
 class Array
 {
 
@@ -20,10 +20,10 @@ public:
 	int getSize();
 	int getCapacity();
 	bool isEmpty();
-	void add(int index, E &e);
-	void addFirst(E &e);
-	void addLast(E &e);
-	void addLast(E &&e);
+	void add(int index,const E &e);
+	void addFirst(const E &e);
+	void addLast(const E &e);
+	void addLast(const E &&e);
 	E get(int index);
 	E getFirst();
 	E getLast();

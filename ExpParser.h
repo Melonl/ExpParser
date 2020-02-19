@@ -13,7 +13,6 @@ public:
 
     ExpParser() : op()
     {
-
         op.addLast('+');
         op.addLast('-');
         op.addLast('*');
@@ -298,7 +297,7 @@ public:
         return res;
     }
 
-    string cal(string &num2, string &num1, string &op)
+    string cal(string &num2, string &num1, const string &op)
     {
         //cout << "cal:" << num1 << "," << num2 << endl;
         double n1, n2, res;

@@ -10,36 +10,14 @@ using namespace std;
 template <typename E>
 class ArrayStack
 {
-
 private:
     Array<E> arr;
 
 public:
-    int size()
-    {
-        return arr.getSize();
-    }
-
-    E top()
-    {
-        return arr.getLast();
-    }
-
-    void push(E e)
-    {
-        arr.addLast(e);
-    }
-
-    E pop()
-    {
-        E e = arr.getLast();
-        arr.removeLast();
-        return e;
-    }
-
-    void printAll()
-    {
-        arr.printAll();
-    }
+    int size();
+    E top();
+    void push(const E &e);
+    E pop();
+    void printAll();
 };
 #endif

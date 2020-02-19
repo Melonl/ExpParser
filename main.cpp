@@ -1,7 +1,9 @@
 #include <iostream>
 #include <cmath>
 #include <iomanip>
+#include <string>
 #include "ArrayStack.h"
+#include "ArrayStack.cpp"
 #include "ExpParser.h"
 
 using namespace std;
@@ -10,7 +12,7 @@ int main()
 {
     string str;
     ExpParser ep;
-    cout << "Please input legal mathematical expression." << endl
+    cout << "Please input a legal mathematical expression." << endl
          << "Input number 0 to exit the program. " << endl;
     while (cin.peek() != EOF)
     {
@@ -23,10 +25,7 @@ int main()
             cout << "illeagal input." << endl;
             continue;
         }
-        //cout << setprecision(16) << s2d(str) << endl;
-
         cout << setprecision(16) << ep.parse(str) << endl;
     }
-    //cout  << endl;
     return 0;
 }
