@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int maintest()
+int main()
 {
 
     string str = "-4*(-2)^2/2+0.5-0.25*0.5";
@@ -18,11 +18,11 @@ int maintest()
     for (int i = 0; i < 1e5; ++i)
         ep.parse(str);
     cout << ((double(clock()) - st) / CLOCKS_PER_SEC) << endl;
-
+    //1e5 calls cost 1.12s
     return 0;
 }
 
-int main()
+int main1()
 {
     string str;
     ExpParser ep;

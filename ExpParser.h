@@ -10,7 +10,7 @@ class ExpParser
 {
     Array<char> op;
 
-    double s2d(string s); //string to double
+    double s2d(const string& s); //string to double
     Array<string> splitExp(string s);
     int getPriority(string opstr); //get priority of op ,included '('
     Array<string> toSuffixExp(Array<string> &expstr);
@@ -19,6 +19,8 @@ class ExpParser
     bool isOp(string s);     //check up the string if it is an op
     bool isOp(char s);       //ditto,check up the char
     bool isNumStr(string s); //check if it is a number string for negative numbers
+    double __pow(double a, int b);
+
 public:
     ExpParser();
     bool checkInput(string &str); //check if it is a illeage exp,included parenthesis matching

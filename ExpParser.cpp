@@ -67,34 +67,54 @@ bool ExpParser::checkInput(string &str)
     return true;
 }
 
-double ExpParser::s2d(string s)
+double ExpParser::__pow(double a, int b)
+{
+    double ans = 1.0;
+    while (b)
+    {
+        if (b & 1 != 0)
+            ans *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return ans;
+}
+
+double ExpParser::s2d(const string &s)
 {
     double res = 0.0;
     int sign = 1;
     int index = 0;
-
+    int st = 0;
     if (s[0] == '-')
     {
-        s.erase(0, 1);
+        st = 1;
         sign = -1;
     }
     int sz = s.size();
+    double r = 0.0;
     if ((index = s.find('.')) == s.npos) //no decimal point
     {
-        for (int i = sz - 1; i >= 0; i--)
+        r = __pow(10, sz - st - 1);
+        for (int i = st; i <= sz - 1; ++i)
         {
-            res += (double)(s[i] - '0') * pow(10, sz - i - 1);
+            res += (double)(s[i] - '0') * r;
+            r /= 10.0;
         }
     }
     else // has decimal point
     {
-        for (int i = index - 1; i >= 0; i--)
+        r = __pow(10, index - st - 1);
+        for (int i = st; i <= index - 1; ++i)
         {
-            res += (double)(s[i] - '0') * pow(10, index - i - 1);
+            res += (double)(s[i] - '0') * r; //__pow(10, index - i - 1);
+            r /= 10.0;
         }
-        for (int j = index + 1; j < sz; j++)
+        r = 0.1;
+        for (int j = index + 1; j < sz; ++j)
         {
-            res += (double)(s[j] - '0') * pow(0.1, j - index);
+            res += (double)(s[j] - '0') * r; //__pow(0.1, j - index);
+            r *= 0.1;
         }
     }
     return res * sign;
