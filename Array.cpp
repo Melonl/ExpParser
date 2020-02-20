@@ -120,7 +120,7 @@ E Array<E>::getLast()
 }
 
 template <typename E>
-int Array<E>::find(E &e)
+int Array<E>::find(const E &e)
 {
 	for (int i = 0; i < size; ++i)
 		if (data[i] == e)
@@ -130,7 +130,7 @@ int Array<E>::find(E &e)
 }
 
 template <typename E>
-bool Array<E>::contains(E &e)
+bool Array<E>::contains(const E &e)
 {
 	return (find(e) == -1 ? false : true);
 }

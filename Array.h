@@ -20,15 +20,15 @@ public:
 	int getSize();
 	int getCapacity();
 	bool isEmpty();
-	void add(int index,const E &e);
+	void add(int index, const E &e);
 	void addFirst(const E &e);
 	void addLast(const E &e);
 	void addLast(const E &&e);
 	E get(int index);
 	E getFirst();
 	E getLast();
-	int find(E &e);
-	bool contains(E &e);
+	int find(const E &e);
+	bool contains(const E &e);
 	void set(int index, E &e);
 	E remove(int index);
 	E removeFirst();

@@ -11,17 +11,17 @@ ExpParser::ExpParser() : op()
     op.addLast(')');
 }
 
-bool ExpParser::isOp(string s)
+bool ExpParser::isOp(const string &s)
 {
     return op.contains(s[0]);
 }
 
-bool ExpParser::isOp(char s)
+bool ExpParser::isOp(const char &s)
 {
     return op.contains(s);
 }
 
-bool ExpParser::isNumStr(string s)
+bool ExpParser::isNumStr(string &s)
 {
     for (char &c : s)
     {
@@ -120,7 +120,7 @@ double ExpParser::s2d(const string &s)
     return res * sign;
 }
 
-Array<string> ExpParser::splitExp(string s)
+Array<string> ExpParser::splitExp(const string& s)
 {
     Array<string> tmp;
     for (int i = 0; i < s.size(); i++)
@@ -175,7 +175,7 @@ Array<string> ExpParser::splitExp(string s)
     return tmp;
 }
 
-int ExpParser::getPriority(string opstr)
+int ExpParser::getPriority(const string& opstr)
 {
     if (opstr.size() != 1)
     {
